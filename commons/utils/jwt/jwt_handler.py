@@ -1,13 +1,19 @@
 import os
-from datetime import datetime, timedelta
 import jwt
-from dotenv import load_dotenv
 from typing import Dict
+from os.path import dirname, join
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
 
-load_dotenv('../../config/.env')
 
-JWT_SECRET = os.environ['JWT_SECRET']
-JWT_ALGORITHM = os.environ['JWT_ALGORITHM']
+dotenv_path = join(dirname(__file__), '../../config/.env')
+load_dotenv(dotenv_path)
+
+try:
+    JWT_SECRET = os.environ['JWT_SECRET']
+    JWT_ALGORITHM = os.environ['JWT_ALGORITHM']
+except KeyError as key:
+    print(f'Error: No such key: {key}')
 
 
 class JWTToken:

@@ -5,10 +5,9 @@ from contextlib import contextmanager
 
 class EngineConn:
 
-    __URL = 'postgresql://routine_fast:routine_fast@localhost/routine_fast_api'
-
-    def __init__(self):
-        self.engine = create_engine(self.__URL, echo=False)
+    def __init__(self, url):
+        self.engine = create_engine(url, echo=False)
+        self.__URL = url
         self.__conn = None
         self.__session = None
 
@@ -27,7 +26,7 @@ class EngineConn:
 
 @contextmanager
 def session_scope():
-    db_engine = EngineConn()
+    db_engine = EngineConn('postgresql://routine_fast:routine_fast@localhost/routine_fast_api')
     session = db_engine.make_session()
     try:
         yield session

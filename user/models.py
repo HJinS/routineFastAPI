@@ -8,7 +8,7 @@ Base = declarative_base()
 
 class UserTable(Base):
 
-    __tablename__ = 'user'
+    __tablename__: str = 'user'
     id = Column(String(120), primary_key=True, default=lambda: str(uuid.uuid4()))
     email = Column(String(25), unique=True)
     first_name = Column(String(15))
