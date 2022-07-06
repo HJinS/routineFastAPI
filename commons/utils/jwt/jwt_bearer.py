@@ -39,5 +39,5 @@ class JWTBearer(HTTPBearer):
                 is_token_expired = True
             elif type == 'access':
                 is_token_valid = True
-        return is_token_valid, is_token_expired
+        d
         

@@ -1,9 +1,8 @@
 from sqlalchemy import Column, String
-from sqlalchemy.orm import declarative_base
 from sqlalchemy_utils import PasswordType
 import uuid
 
-Base = declarative_base()
+from commons.config.db import Base
 
 
 class UserTable(Base):

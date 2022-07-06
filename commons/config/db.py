@@ -1,6 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from contextlib import contextmanager
+from sqlalchemy.orm import declarative_base
+
+Base = declarative_base()
 
 
 class EngineConn:

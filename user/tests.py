@@ -5,7 +5,7 @@ from .routes import user_app
 client = TestClient(user_app)
 
 
-def test_register():
+def test_register(client):
     register_data = {
         'email': 'test_user@example.com',
         'first_name': 'test_firstname',
@@ -20,7 +20,7 @@ def test_register():
     assert 'refresh_token' in response_json
 
 
-def test_register_short_password():
+def test_register_short_password(client):
     register_data = {
         'email': 'test_user@example.com',
         'first_name': 'test_firstname',
